@@ -5,13 +5,8 @@
         <p>
         {% if post_text %}
         <ul>   
-            {% for post in post_text %}    
-                <div class = "row">
-                <div class="col-xs-12 col-sm-6 col-md-8"><li>{{ post }}<li></div>
-                </div>
-            {% endfor %}    
+            {{ post_text }}
         {% else %}
             <ul>Nothing here <ul>
         {% endif %}
-
 {% endblock %}

@@ -5,7 +5,18 @@ import logging
 from goose import Goose
 logger = logging.getLogger(__name__)
 
-def make_soup(url):
+def extract(url):
+	logger.info ("inside extract function")
+	goose = Goose()
+	article = goose.extract(url=url)
+	logger.debug (article.cleaned_text)
+	return (article)
+
+def clean_post(post):
+	return ("nothing")
+
+#Redundant - no more applicable since we are using the "goose" library now
+'''def make_soup(url):
 	logger.info ("Entering make_soup")
 
 	#create the soup from the url that is the input
@@ -31,9 +42,10 @@ def make_soup(url):
 
 	logger.debug(html_contents)
 
-	return BeautifulSoup(html_contents, "lxml")
+	return BeautifulSoup(html_contents, "lxml") '''
 
-def get_soup(url):
+#Redundant - no more applicable since we are using the "goose" library now
+''' def get_soup(url):
 	#find all the individual posts and dump it into a soup
 	logger.info ("Entering get_soup")
 	soup = make_soup(url)
@@ -45,10 +57,7 @@ def get_soup(url):
  	post = soup.find_all("p")
 
  	#logger.debug (post)
- 	return (post)
-
-def clean_post(post):
-	return ("nothing")
+ 	return (post)   '''
 
 if __name__ == '__main__':
 	url = "http://www.team-bhp.com/forum/test-drives-initial-ownership-reports/148583-2014-fiat-linea-facelift-test-drive-review.html"
